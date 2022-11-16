@@ -1,10 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import GalleryComponent from "./components/GalleryComponent";
+import {RICKANDMORTYCHARACTERS} from "./components/rickAndMortyCharacters";
 
 function App() {
   return (
     <div className="App">
+      <GalleryComponent characters={RICKANDMORTYCHARACTERS}></GalleryComponent>
+
+
+
+
+
+
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
