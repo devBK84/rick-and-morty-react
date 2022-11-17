@@ -1,0 +1,34 @@
+h1{
+    text-align: center;
+    font-style: normal;
+    font-family: sans-serif;
+    color: white;
+
+
+}
+
+img{
+    border: 8px solid;
+    border-color: steelblue;
+    margin: 1rem 1rem;
+    border-radius: 15px;
+
+
+}
+
+h2{
+    text-align: center;
+    font-style: normal;
+    font-family: sans-serif;
+    color: white;
+}
+
+
+.Card-Character:hover{
+    transform: scale(1.2);
+    transition-duration: .5s;
+}
+
+.Card-Character{
+    transition-duration: 0.5s;
+}
