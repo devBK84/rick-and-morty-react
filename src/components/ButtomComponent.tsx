@@ -17,6 +17,4 @@ export default function(){
             </button>
         </div>
     )
-
-
 }

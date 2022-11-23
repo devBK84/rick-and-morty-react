@@ -9,25 +9,30 @@ type GalleryComponentProps = {
 }
 export default function GalleryComponent(props: GalleryComponentProps) {
 
+
     const [searchText, setSearchText] = useState("all")
+    let [filteredCharacters, setFilteredCharacters] = useState(props.characters)
+
+    function deleteCharacter(id: number){
+        const newCharacterList = filteredCharacters.filter(function (character) {
+            return character.id !== id;
+        })
+        setFilteredCharacters(newCharacterList)
+    }
+
     const safeInput = (event: any) => {
         console.log(event)
         setSearchText(event.target.value)
     }
 
-    const filterCharacters = props.characters.filter((character) => {
-        if (character.name.toLowerCase().includes (searchText.toLowerCase())) {
-            return true
-        } else {
-            return false
-        }
+    const filterCharacters = filteredCharacters.filter((character) => {
+        return character.name.toLowerCase().includes(searchText.toLowerCase());
     })
     const CharacterComponents = filterCharacters.map((character: Characater, index) => {
-
-        return <CharacterCardComponent character={character} key={character.id}></CharacterCardComponent>
-
-
+        return <CharacterCardComponent character={character} key={character.id}
+                                       deletecharacter={deleteCharacter}></CharacterCardComponent>
     })
+
 
     return (
         <div>
@@ -38,11 +43,3 @@ export default function GalleryComponent(props: GalleryComponentProps) {
         </div>)
 }
 
-
-// return items.filter((item) => {
-// return searchParam.some((newItem) => {
-// return (
-// item[newItem]
-// .toString()
-//                 .toLowerCase()
-//                 .indexOf(q.toLowerCase()) > -1

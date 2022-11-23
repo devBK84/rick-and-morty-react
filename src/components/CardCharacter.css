@@ -3,11 +3,24 @@ h1{
     font-style: normal;
     font-family: sans-serif;
     color: white;
+}
+
+.Navbar{
+    text-align: center;
+    font-style: normal;
+    font-family: sans-serif;
+    border: 2px solid;
+    color: white;
+}
+
+.NavLink {
+    color: white;
+    font-family: sans-serif;
 
 
 }
 
-img{
+.img{
     border: 8px solid;
     border-color: steelblue;
     margin: 1rem 1rem;
@@ -16,7 +29,7 @@ img{
 
 }
 
-h2{
+.h2{
     text-align: center;
     font-style: normal;
     font-family: sans-serif;
@@ -31,4 +44,9 @@ h2{
 
 .Card-Character{
     transition-duration: 0.5s;
+}
+
+.Button-Character{
+    text-align: center;
+    font-style: normal;
 }

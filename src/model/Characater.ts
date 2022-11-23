@@ -3,5 +3,4 @@ export type Characater = {
     image: string,
     status: string,
     id: number
-
 }
