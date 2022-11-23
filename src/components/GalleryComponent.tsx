@@ -2,37 +2,29 @@ import {Characater} from "../model/Characater";
 import CharacterCardComponent from "./CharacterCardComponent";
 import "./CharacterGallery.css";
 import React, {useState} from "react";
-import {logDOM} from "@testing-library/react";
 
 type GalleryComponentProps = {
     characters: Characater[]
+    deleteCharacter(id: number): void
 }
 export default function GalleryComponent(props: GalleryComponentProps) {
 
 
-    const [searchText, setSearchText] = useState("all")
-    let [filteredCharacters, setFilteredCharacters] = useState(props.characters)
+    const [searchText, setSearchText] = useState("")
 
-    function deleteCharacter(id: number){
-        const newCharacterList = filteredCharacters.filter(function (character) {
-            return character.id !== id;
-        })
-        setFilteredCharacters(newCharacterList)
-    }
 
     const safeInput = (event: any) => {
         console.log(event)
         setSearchText(event.target.value)
     }
 
-    const filterCharacters = filteredCharacters.filter((character) => {
+    const filterCharacters = props.characters.filter((character) => {
         return character.name.toLowerCase().includes(searchText.toLowerCase());
     })
     const CharacterComponents = filterCharacters.map((character: Characater, index) => {
         return <CharacterCardComponent character={character} key={character.id}
-                                       deletecharacter={deleteCharacter}></CharacterCardComponent>
+                                       deletecharacter={props.deleteCharacter}></CharacterCardComponent>
     })
-
 
     return (
         <div>
